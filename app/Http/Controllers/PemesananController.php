@@ -66,15 +66,11 @@ class PemesananController extends Controller
         $validatedData = $request->validate(
             [
                 'kode_pemesanan' => 'required',
-                'alamat' => 'required',
-                'no_hp' => 'required',
-                'email' => 'required',
                 'desain' => 'required|mimes:jpg,jpeg,bmp,png|max:2048kb',
                 'tgl_pesanan' => 'required|date|date_format:Y-m-d',
                 'tgl_deadline' => 'required|date|date_format:Y-m-d',
                 'deskripsi' => 'required',
                 'user_id' => 'required',
-                'kelola_produk_id' => 'required',
                 'pelayanan_produk_id' => 'required',
                 'kelola_kain_id' => 'required',
                 'kelola_orderan_id' => 'required'

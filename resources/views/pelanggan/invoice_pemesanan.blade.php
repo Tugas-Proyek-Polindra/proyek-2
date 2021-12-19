@@ -3,18 +3,19 @@
 @section('title', 'Invoice Pemesanan')   
 @section('content')
 
+@if (session('pesan'))
+<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismis="alert" aria-hidden="true">&times;</button>
+    <h4><i class="icon fa fa-check"></i>Success:</h4>
+    {{session('pesan')}}
+</div>     
+@endif
+
 <div class="row">
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
             <h3 class="box-title">Semua @yield('title')</h3>
-            @if (session('pesan'))
-                <div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismis="alert" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-check"></i>Success:</h4>
-                    {{session('pesan')}}
-                </div>     
-                @endif
                 <div class="box-tools">
                     {{-- <a href="/produk/create" class="btn btn-primary btn-sm me-5"><i class="fa fa-fw fa-plus-square"></i>Tambah Data</a> --}}
                 </div>

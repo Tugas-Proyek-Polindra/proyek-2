@@ -107,19 +107,19 @@ class DatabaseSeeder extends Seeder
             'deskripsi' => 'Pemesanan Pelanggan Pertama Kali'
         ]);
 
-        InvoicePemesanan::create([
-            'pemesanan_id' => 1,
-            'user_id' => 3,
-            'jumlah_pemesanan' => 100,
-            'kelola_produk_id' => 1,
-            'total_bayar' => 800000,
-            'tgl_pesanan' => Carbon::createFromFormat('Y-m-d', '2021-12-01')->toDateTimeImmutable(),
-            'tgl_deadline' => Carbon::createFromFormat('Y-m-d', '2021-12-02')->toDateTimeImmutable(),
-            // 'tgl_pesanan' => new \DateTime,
-            // 'tgl_deadline' => new \DateTime,
-            'status_pembayaran' => 'Lunas',
-            'status_pemesanan' => 'Proses',
-            'status_barang' => 'Diterima'
-        ]);
+        // InvoicePemesanan::create([
+        //     'pemesanan_id' => 1,
+        //     'user_id' => 3,
+        //     'jumlah_pemesanan' => 100,
+        //     'kelola_produk_id' => 1,
+        //     'total_bayar' => 800000,
+        //     'tgl_pesanan' => Carbon::createFromFormat('Y-m-d', '2021-12-01')->toDateTimeImmutable(),
+        //     'tgl_deadline' => Carbon::createFromFormat('Y-m-d', '2021-12-02')->toDateTimeImmutable(),
+        //     // 'tgl_pesanan' => new \DateTime,
+        //     // 'tgl_deadline' => new \DateTime,
+        //     'status_pembayaran' => 'Lunas',
+        //     'status_pemesanan' => 'Proses',
+        //     'status_barang' => 'Diterima'
+        // ]);
     }
 }

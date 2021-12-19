@@ -50,9 +50,9 @@
   
   {{-- Fitur Pelanggan --}}
   @elseif (auth()->user()->level==0)
-  <li class="{{ request()->is('pemesanan') ? 'active' : '' }}" ><a href="/pemesanan"><i class="fa fa-book"></i> <span> Pemesanan</span></a></li>       
-  <li class="{{ request()->is('pelanggan_pemesanan') ? 'active' : '' }}" ><a href="/pemesanan/create"><i class="fa fa-book"></i> <span> Form Pemesanan</span></a></li>       
-  <li class="{{ request()->is('pelanggan-invoice') ? 'active' : '' }}" ><a href="/pelanggan-invoice"><i class="fa fa-book"></i> <span> Invoice Pemesanan</span></a></li>       
+  {{-- <li class="{{ request()->is('pemesanan') ? 'active' : '' }}" ><a href="/pemesanan"><i class="fa fa-book"></i> <span> Pemesanan</span></a></li>        --}}
+  <li class="{{ request()->is('pelanggan_pemesanan') ? 'active' : '' }}" ><a href="/pemesanan/create"><i class="fa fa-book"></i> <span> Pemesanan</span></a></li>       
+  <li class="{{ request()->is('pelanggan-invoice') ? 'active' : '' }}" ><a href="/pemesanan"><i class="fa fa-book"></i> <span> Invoice Pemesanan</span></a></li>       
   <li class="{{ request()->is('pelanggan-buktibayar') ? 'active' : '' }}" ><a href="/pelanggan-buktibayar"><i class="fa fa-book"></i> <span> Bukti Pembayaran</span></a></li>       
 </ul>   
 @endif
