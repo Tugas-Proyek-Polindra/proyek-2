@@ -4,8 +4,6 @@
     
 @section('content')
 
-
-
 @if (session('pesan'))
 <div class="alert alert-success alert-dismissible">
    <button type="button" class="close" data-dismis="alert" aria-hidden="true">&times;</button>
@@ -20,7 +18,7 @@
         <div class="box-header">
           <h3 class="box-title">Semua @yield('title')</h3>
             <div class="box-tools">
-              <a href="/pelanggan-buktibayar/create" class="btn btn-primary btn-sm me-5"><i class="fa fa-fw fa-plus-square"></i>Tambah Data</a>
+              <a href="/pelanggan-buktibayar/create" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-plus-square"></i> Tambah Data</a>
             </div>
         </div>
         <!-- /.box-header -->
@@ -29,16 +27,17 @@
             <thead>
               <tr>
                   <th>Kode</th>
-                  <th>Username</th>
+                  <th>Nama</th>
                   <th>Alamat</th>
                   <th>Handphone</th>
                   <th>Email</th>
                   <th>Status Bayar</th>
+                  <th>Validasi Bayar</th>
                   <th>Bukti Bayar</th>
               </tr>
             </thead>
         <tbody>
-              @foreach ($kelola_buktibayar as $buktibayar)
+              @foreach ($bukti_pembayaran as $buktibayar)
               <tr>
                 <td> {{$buktibayar->kode_buktibayar}} </td>
                 <td> {{$buktibayar->user->name}} </td>
@@ -47,39 +46,107 @@
                 <td> {{$buktibayar->user->email}} </td>
                 <td> {{$buktibayar->status_bayar}} </td>
                 <td> {{$buktibayar->validasi_pembayaran}} </td>
+                <td><img src="{{asset('storage/' . $buktibayar->bukti)}}" height="50px" alt="{{$buktibayar->name}}"></td>
                 <td>
-                  <form method="post" action="/bukti-bayar/{{$buktibayar->id}}" class="form-inline">
-                    <a href="/bukti-bayar/{{$buktibayar->id}}" class="btn btn-sm btn-success" ><i class="fa fa-fw fa-file-text"></i></a>
-                    <a href="/bukti-bayar/{{$buktibayar->id}}/edit" class="btn btn-sm btn-warning" ><i class="fa fa-fw fa-pencil-square-o"></i></a>
-                    @csrf
-                    @method('delete')
-                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete{{$buktibayar->id}}"><i class="fa fa-fw fa-close"></i></button>
-                </form>
-                <div class="modal modal-danger fade" id="delete{{$buktibayar->id}}">
-                  <div class="modal-dialog modal-sm">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title">{{$buktibayar->name}}</h4>
-                      </div>
-                      <div class="modal-body">
-                      <p>Apakah Anda Yakin Ingin Menghapus Data Ini....???</p>
-                      </div>
-                      <div class="modal-footer">
-                      <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
-                      <button type="button" class="btn btn-outline pull-right">Yes</button>
-                    </div>
-                  </div>
-                  <!-- /.modal-content -->
-                  </div>
-                  <!-- /.modal-dialog -->
-                </div>                 
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
+                    <i class="fa fa-fw fa-file-text"></i>
+                  </button>
                 </td>
               </tr>
             @endforeach
         </tbody>
           </table>
+
+          <div class="modal modal-default fade" id="modal-default">
+            <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Detail Bukti Bayar</h4>
+              </div>
+              <div class="modal-body">
+              <table class="table table-hover">
+                    <tr>
+                        <th width="150px">Kode</th>
+                        <th width="30px">:</th>
+                        <th>{{ $buktibayar->kode_buktibayar }}</th>
+                    </tr>
+                    {{-- <tr>
+                        <th width="150px">Kode Pemesanan</th>
+                        <th width="30px">:</th>
+                        <th>{{ $buktibayar->kode_buktibayar }}</th>
+                    </tr>
+                    <tr>
+                      <th width="150px">Pelayanan Produk</th>
+                      <th width="30px">:</th>
+                      <th>{{ $buktibayar->pelayanan_produk->kategori }}</th>
+                    </tr> --}}
+                    <tr>
+                        <th width="150px">Nama</th>
+                        <th width="30px">:</th>
+                        <th>{{ $buktibayar->user->name }}</th>
+                    </tr>
+                    <tr>
+                        <th width="150px">Alamat</th>
+                        <th width="30px">:</th>
+                        <th>{{ $buktibayar->user->alamat }}</th>
+                    </tr>
+                    <tr>
+                        <th width="150px">No Handphone</th>
+                        <th width="30px">:</th>
+                        <th>{{ $buktibayar->user->no_hp }}</th>
+                    </tr>
+                    <tr>
+                        <th width="150px">Email</th>
+                        <th width="30px">:</th>
+                        <th>{{ $buktibayar->user->email }}</th>
+                    {{-- </tr>
+                    <tr>
+                        <th width="150px">Tgl Pesanan</th>
+                        <th width="30px">:</th>
+                        <th>{{Carbon\Carbon::parse($buktibayar->tgl_pesanan)->toFormattedDateString()}}</th>
+                    </tr>
+                    <tr>
+                        <th width="150px">Tgl Deadline</th>
+                        <th width="30px">:</th>
+                        <th>{{Carbon\Carbon::parse($buktibayar->tgl_deadline)->toFormattedDateString()}}</th>
+                    </tr> --}}
+                    <tr>
+                      <th width="150px">Status Bayar</th>
+                      <th width="30px">:</th>
+                      <th>{{$buktibayar->status_bayar}}</th>
+                    </tr>
+                    <tr>
+                      <th width="150px">Validasi Bayar</th>
+                      <th width="30px">:</th>
+                      <th>{{$buktibayar->validasi_pembayaran}}</th>
+                    </tr>
+                    <tr>                       
+                        <th width="150px">Bukti Bayar</th>
+                        <th width="30px">:</th>
+                        <th>
+                          <a href="{{asset('storage/' . $buktibayar->bukti)}}">
+                            <img src="{{asset('storage/' . $buktibayar->bukti)}}" height="200px" alt="{{$buktibayar->name}}">
+                          </a>                            
+                        </th>                         
+                    </tr>                   
+                    <tr>
+                        <th width="150px">Validasi</th>
+                        <th width="30px">:</th>
+                        <th>{{$buktibayar->status_bayar}}</th>
+                    </tr>
+              </table>
+              </div>
+              <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    {{-- <button type="button" class="btn btn-success">Save Close</button> --}}
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+
+
         </div>
       </div>
     </div>
