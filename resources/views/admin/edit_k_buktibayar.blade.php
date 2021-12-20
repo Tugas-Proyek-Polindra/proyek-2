@@ -16,6 +16,8 @@
         @method('put')
         @csrf
         <div class="box-body">
+            <input type="hidden" name="user_id"  id="user_id" class="form-control" value="{{Auth::user()->id}}" readonly>
+
             <div class="form-group">
                 <label for="kode_buktibayar">Kode Bayar</label>
                 <input name="kode_buktibayar" class="form-control" value="{{old('kode_buktibayar', $bukti_pembayaran->kode_buktibayar)}}" readonly>
@@ -90,6 +92,15 @@
                     {{$message}}
                     @enderror
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="deskripsi">Deskripsi</label>
+                <input name="deskripsi" class="form-control" value="{{old('deskripsi', $bukti_pembayaran->deskripsi)}}">
+                    <div class="text-danger">
+                    @error('deskripsi')
+                    {{$message}}
+                    @enderror
+                    </div>                 
             </div>
             {{-- 
             <div class="form-group">

@@ -102,7 +102,7 @@ class BuktiPembayaranController extends Controller
             "users" => User::all()
 
         ]);
-        return redirect('/bukti-bayar')->with('pesan', 'Data Berhasil Ditambahkan !');
+        return redirect('/pelanggan-buktibayar')->with('pesan', 'Data Berhasil Ditambahkan !');
     }
 
     /**
@@ -114,6 +114,7 @@ class BuktiPembayaranController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // return $request;
         $validatedData = $request->validate(
             [
                 'kode_buktibayar' => 'required',
@@ -125,12 +126,12 @@ class BuktiPembayaranController extends Controller
             ]
         );
 
-        $validatedData['bukti'] = $request->file('bukti')->store('bukti-images');
+        // $validatedData['bukti'] = $request->file('bukti')->store('bukti-images');
 
         $buktiPembayaran = BuktiPembayaran::find($id)
             ->update($validatedData);
 
-        return redirect('/bukti-bayar')->with('pesan', 'Data Berhasil Di Update !');
+        return redirect('/pelanggan-buktibayar')->with('pesan', 'Data Berhasil Di Update !');
     }
 
     /**
