@@ -49,7 +49,7 @@
             </div>
             <div class="form-group">
                 <label for="no_hp">Handphone</label>
-                <input name="no_hp" class="form-control"value="{{Auth::user()->no_hp}}" readonly>
+                <input name="no_hp" class="form-control" value="{{Auth::user()->no_hp}}" readonly>
                 <div class="text-danger">
                     @error('no_hp')
                         {{$message}}
@@ -58,7 +58,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input name="email" class="form-control"value="{{Auth::user()->email}}" readonly>
+                <input name="email" class="form-control" value="{{Auth::user()->email}}" readonly>
                 <div class="text-danger">
                     @error('email')
                         {{$message}}

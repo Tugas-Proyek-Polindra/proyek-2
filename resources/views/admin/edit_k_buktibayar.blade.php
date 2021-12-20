@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Username</label>
-                <input name="name" class="form-control" value="{{old('user_id', $bukti_pembayaran->user->name)}}" readonly>
+                <input name="name" class="form-control" value="{{Auth::user()->name}}" readonly>
                 <div class="text-danger">
                     @error('name')
                     {{$message}}
@@ -38,7 +38,7 @@
             </div>
             <div class="form-group">
                 <label for="alamat">Alamat</label>
-                    <input name="alamat" class="form-control" value="{{old('alamat', $bukti_pembayaran->user->alamat)}}" readonly>
+                    <input name="alamat" class="form-control" value="{{Auth::user()->alamat}}" readonly>
                     <div class="text-danger">
                     @error('alamat')
                     {{$message}}
@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                 <label for="no_hp">Handphone</label>
-                <input name="no_hp" class="form-control" value="{{old('no_hp', $bukti_pembayaran->user->no_hp)}}" readonly>
+                <input name="no_hp" class="form-control" value="{{Auth::user()->no_hp}}" readonly>
                     <div class="text-danger">
                     @error('no_hp')
                     {{$message}}
@@ -56,7 +56,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input name="email" class="form-control" value="{{old('email', $bukti_pembayaran->user->email)}}" readonly>
+                <input name="email" class="form-control" value="{{Auth::user()->email}}" readonly>
                     <div class="text-danger">
                     @error('email')
                     {{$message}}
@@ -73,8 +73,8 @@
             </div>
             
             <div class="form-group">
-                <label for="status_bayar">Validasi Bayar</label>
-                <select name="status_bayar" id="combobox" class="form-control">
+                <label for="validasi_pembayaran">Validasi Pembayaran</label>
+                <select name="validasi_pembayaran" id="combobox" class="form-control">
                         <option value="Valid" {{$bukti_pembayaran ? ($bukti_pembayaran->validasi_pembayaran == "Valid" ? 'selected' : "") : "" }}>Valid</option>
                         <option value="Invalid" {{$bukti_pembayaran ? ($bukti_pembayaran->validasi_pembayaran == "Invalid" ? 'selected' : "") : "" }}>Invalid</option>
                 </select>     

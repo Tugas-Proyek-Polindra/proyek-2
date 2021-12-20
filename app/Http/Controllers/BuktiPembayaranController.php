@@ -121,12 +121,9 @@ class BuktiPembayaranController extends Controller
                 'user_id' => 'required',
                 'status_bayar' => 'required',
                 'validasi_pembayaran' => 'required',
-                // 'bukti' => 'required|mimes:jpg,jpeg,bmp,png|max:2048kb',
                 'deskripsi' => 'required',
             ]
         );
-
-        // $validatedData['bukti'] = $request->file('bukti')->store('bukti-images');
 
         $buktiPembayaran = BuktiPembayaran::find($id)
             ->update($validatedData);
