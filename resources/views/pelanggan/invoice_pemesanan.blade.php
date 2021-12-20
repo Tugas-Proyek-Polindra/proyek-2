@@ -27,7 +27,7 @@
                         <th>No</th>
                         <th>Kode</th>
                         <th>Kategori</th>
-                        <th>Jenis Kain</th>
+                        <th>Total Harga</th>
                         <th>Jumlah Orderan</th>
                         <th>Tgl Pesanan</th>
                         <th>Tgl Deadline</th>
@@ -40,7 +40,7 @@
                     <td> {{$loop->iteration}} </td>
                     <td> {{$pesan->kode_pemesanan}} </td>
                     <td> {{$pesan->pelayanan_produk->kategori}} </td>
-                    <td> {{$pesan->kelola_kain->nama_kain}} </td>
+                    <td> @currency($pesan->total_bayar) </td>
                     <td> {{$pesan->kelola_orderan->jumlah_orderan}} </td>
                     <td> {{Carbon\Carbon::parse($pesan->tgl_pesanan)->toFormattedDateString()}} </td>
                     <td> {{Carbon\Carbon::parse($pesan->tgl_deadline)->toFormattedDateString()}} </td>
@@ -91,9 +91,19 @@
                             <th>{{ $pesan->user->email }}</th>
                         </tr>
                         <tr>
+                            <th width="150px">Jumlah</th>
+                            <th width="30px">:</th>
+                            <th>{{ $pesan->jumlah_pemesanan }}</th>
+                        </tr>
+                        <tr>
+                            <th width="150px">Total Bayar</th>
+                            <th width="30px">:</th>
+                            <th>@currency($pesan->total_bayar)</th>
+                        </tr>
+                        <tr>
                             <th width="150px">Kategori</th>
                             <th width="30px">:</th>
-                           <th>{{ $pesan->pelayanan_produk->kategori }}</th>
+                            <th>{{ $pesan->pelayanan_produk->kategori }}</th>
                         </tr>
                         <tr>
                             <th width="150px">Jenis Kain</th>

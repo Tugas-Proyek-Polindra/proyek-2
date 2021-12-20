@@ -89,6 +89,27 @@
                     @endforeach
                 </select>   
             </div>
+
+            <div class="form-group">
+                <label for="jumlah_pemesanan">Jumlah</label>
+                <input name="jumlah_pemesanan" class="form-control" value="{{old('jumlah_pemesanan')}}">
+                <div class="text-danger">
+                    @error('jumlah_pemesanan')
+                        {{$message}}
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="total_bayar">Total Bayar</label>
+                <input name="total_bayar" class="form-control" value="{{old('total_bayar')}}">
+                <div class="text-danger">
+                    @error('total_bayar')
+                        {{$message}}
+                    @enderror
+                </div>
+            </div>
+
             
             <div class="form-group row">
                 <label for="tgl_pesanan" class="col-sm-2 col-form-label">Tanggal Pesanan</label>

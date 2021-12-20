@@ -82,6 +82,8 @@ class PemesananController extends Controller
                 'desain' => 'required|mimes:jpg,jpeg,bmp,png|max:2048kb',
                 'tgl_pesanan' => 'required|date|date_format:Y-m-d',
                 'tgl_deadline' => 'required|date|date_format:Y-m-d',
+                'jumlah_pemesanan' => 'required',
+                'total_bayar' => 'required',
                 'deskripsi' => 'required',
                 'user_id' => 'required',
                 'pelayanan_produk_id' => 'required',
