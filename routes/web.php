@@ -55,6 +55,13 @@ Route::get('/pemesanan/invoice', [PemesananController::class, 'invoice'])->name(
 
 
 
+
 //Pelanggan
 Route::resource('/pemesanan', PemesananController::class)->middleware('auth');
 Route::resource('/pelanggan-buktibayar', BuktiPembayaranController::class)->middleware('auth');
+Route::get('/pelanggan', [DashboardController::class, 'pelanggan'])->name('pelanggan')->middleware('pelanggan');
+
+// Route::group(['middleware' => 'penjual'], function () {
+//     Route::get('/kelola_akun', [K_AkunController::class, 'index']);
+//     Route::get('/laporan', [LaporanController::class, 'index']);
+// });

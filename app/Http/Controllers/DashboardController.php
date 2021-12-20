@@ -19,4 +19,9 @@ class DashboardController extends Controller
     {
         return view('contact_us');
     }
+
+    public function pelanggan()
+    {
+        return view('pelanggan.home');
+    }
 }

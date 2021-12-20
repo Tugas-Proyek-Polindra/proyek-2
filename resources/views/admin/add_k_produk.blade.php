@@ -85,13 +85,13 @@
             </div>
             {{-- Form Foto --}}
             <div class="form-group">
-                <label for="foto">Foto</label>
-                <input type="file" id="foto">
-                    <div class="text-danger">
-                        @error('foto')
-                        {{$message}}
-                        @enderror
-                    </div>
+                <label for="img">Example</label>
+                <input name="img" class="form-control" type="file" id="img" value="{{old('img')}}">
+                <div class="text-danger">
+                    @error('img')
+                    {{$message}}
+                    @enderror
+                </div>
             </div>
         </div>
         <!-- /.box-body -->

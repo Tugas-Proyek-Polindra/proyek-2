@@ -36,7 +36,7 @@
                   <th>Ukuran</th>
                   <th>Model</th>
                   <th>Desain</th>
-                  <th>Foto</th>
+                  <th>Example</th>
               </tr>
             </thead>
             <tbody>
@@ -50,7 +50,9 @@
                   <td> {{$kelolaProduk->ukuran}} </td>
                   <td> {{$kelolaProduk->model}} </td>
                   <td> {{$kelolaProduk->desain}} </td>
-                  <td> {{$kelolaProduk->foto}} </td>
+                  <td><img src="{{asset('storage/' . $kelolaProduk->img)}}" height="50px" alt="{{$kelolaProduk->nama_produk}}"></td>
+                  {{-- <td><img src="{{asset('storage/' . $buktibayar->bukti)}}" height="50px" alt="{{$buktibayar->name}}"></td> --}}
+
                   <td>                                        
                       <form method="post" action="/produk/{{$kelolaProduk->id}}" class="form-inline">
                           <a href="/produk/{{$kelolaProduk->id}}" class="btn btn-sm btn-success" ><i class="fa fa-fw fa-file-text"></i></a>
@@ -58,7 +60,7 @@
                           @csrf
                           @method('delete')
                           <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete{{$kelolaProduk->id}}"><i class="fa fa-fw fa-close"></i></button>    
-                                    
+                      </form>           
                         <div class="modal modal-danger fade" id="delete{{$kelolaProduk->id}}">
                           <div class="modal-dialog modal-sm">
                           <div class="modal-content">

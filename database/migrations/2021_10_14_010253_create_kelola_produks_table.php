@@ -22,7 +22,7 @@ class CreateKelolaProduksTable extends Migration
             $table->string('ukuran');
             $table->string('model');
             $table->string('desain');
-            $table->string('foto')->nullable();
+            $table->string('img')->nullable();
             $table->text('detail')->nullable();
             $table->timestamps();
         });

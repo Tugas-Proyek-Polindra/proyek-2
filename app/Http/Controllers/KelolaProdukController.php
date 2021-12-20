@@ -60,15 +60,14 @@ class KelolaProdukController extends Controller
                 'model' => 'required',
                 'desain' => 'required',
                 'detail' => 'required',
-                // 'foto' => 'required',
+                'img' => 'required|mimes:jpg,jpeg,bmp,png|max:2048kb',
                 'pelayanan_produk_id' => 'required',
                 'kelola_kain_id' => 'required',
             ]
         );
 
-        //?jika validasi tidak ada maka lakukan simpan data
-        //upload gambar/foto 
-        // $file = $request->
+
+        $validatedData['img'] = $request->file('img')->store('produk-images');
 
         KelolaProduk::create($validatedData);
 

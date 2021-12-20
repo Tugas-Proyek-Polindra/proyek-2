@@ -3,14 +3,14 @@
 
 @section('content')
 
-<form action="/kelola_orderan/{{$orderan->id_order}} " method="POST" enctype="multipart/form-data">
+<form action="/produk/kelola_orderan/{{$orderan->id}}" method="POST" enctype="multipart/form-data">
     @method('put')
     @csrf
     <div class="content">
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label for="kode_order">Id Order</label>
+                    <label for="kode_order">Kode</label>
                     <input name="kode_order" class="form-control" value="{{$orderan->kode_order}}">
                     <div class="text-danger">
                         @error('kode_order')

@@ -42,7 +42,7 @@
       <!-- Akhir Carousel -->
 
       <!-- List Order -->
-        <h3 class="text-center p-3"><span>KATEGORI LAYANA KONVEKSI PRODUK PADA KAFKA</span> </h3>
+          <h3 class="text-center p-3"><span>KATEGORI LAYANA KONVEKSI PRODUK PADA KAFKA</span> </h3>
         <div class="containers text-center">
             <div class="row justify-content-center ms-4">
                 <div class="col-md-3 col-sm-3">
@@ -107,14 +107,13 @@
                             </div>
                       </div>
               </div>
-        </div>
+      </div>
 
 
       <!-- Footer -->
       <footer class="satu mt-auto bg-dark text-light">
-        <div class="container p-3 text-center ">
-         
-         <span class="text-muted">Copyright &copy 2021. All Right Reserved</span>
+        <div class="container p-3 text-center ">        
+          <span class="text-muted">Copyright &copy 2021. All Right Reserved</span>
         </div>
       </footer>
       <!-- Akhir Footer -->

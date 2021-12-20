@@ -127,18 +127,18 @@ class DatabaseSeeder extends Seeder
             'harga_satuan' => 150000
         ]);
 
-        KelolaProduk::create([
-            // 'slug' => 'sablon-kaos-1',
-            'kode_produk' => 1111,
-            'pelayanan_produk_id' => 1,
-            'kelola_kain_id' => 1,
-            'nama_produk' => 'Kaos Sablon',
-            'ukuran' => 'L',
-            'model' => 'Pendek',
-            'desain' => 'Sendiri',
-            'foto' => 'kaos_sablon.png',
-            'detail' => 'Kaos yang ukurannya disesuaikan pelanggannya',
-        ]);
+        // KelolaProduk::create([
+        //     // 'slug' => 'sablon-kaos-1',
+        //     'kode_produk' => 1111,
+        //     'pelayanan_produk_id' => 1,
+        //     'kelola_kain_id' => 1,
+        //     'nama_produk' => 'Kaos Sablon',
+        //     'ukuran' => 'L',
+        //     'model' => 'Pendek',
+        //     'desain' => 'Sendiri',
+        //     'example' => 'kaos_sablon.png',
+        //     'detail' => 'Kaos yang ukurannya disesuaikan pelanggannya',
+        // ]);
 
         // BuktiPembayaran::create([
         //     'kode_buktibayar' => '12333',

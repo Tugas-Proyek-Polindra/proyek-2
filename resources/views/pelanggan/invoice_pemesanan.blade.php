@@ -61,7 +61,7 @@
                     <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Detail Pesanan</h4>
+                        <h4 class="modal-title">Detail Pesanan</h4>
                     </div>
                     <div class="modal-body">
                     <table class="table table-hover">
@@ -120,7 +120,7 @@
                             <th width="150px">Desain</th>
                             <th width="30px">:</th>
                             <th>
-                                <img src="{{asset('storage/' . $pesan->desain)}}" width="400px" alt="{{$pesan->name}}">
+                                <img src="{{asset('storage/' . $pesan->desain)}}" width="200px" alt="{{$pesan->name}}">
                             </th>                         
                         </tr>
                         <tr>
@@ -131,8 +131,7 @@
                     </table>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success">Save changes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
