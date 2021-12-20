@@ -64,7 +64,7 @@
                     </div>           
                     <div class="form-group">
                         <label for="bukti">Bukti</label>
-                        <input name="bukti" class="form-control" type="file" id="bukti" value="{{old('desain')}}">
+                        <input name="bukti" class="form-control" type="file" id="bukti" value="{{old('bukti')}}">
                         <div class="text-danger">
                             @error('bukti')
                             {{$message}}

@@ -77,6 +77,20 @@
                         <option value="Invalid" {{$bukti_pembayaran ? ($bukti_pembayaran->validasi_pembayaran == "Invalid" ? 'selected' : "") : "" }}>Invalid</option>
                 </select>     
             </div>
+            <div class="form-group">
+                <div class="">
+                    <img src="{{asset('storage/' . $bukti_pembayaran->bukti)}}" height="200px" alt="{{$bukti_pembayaran->name}}">
+                </div>
+                <div class="">
+                    <label for="bukti">Ganti Foto Bukti</label>
+                    <input name="bukti" class="form-control" type="file" id="bukti" value="{{old('bukti')}}">
+                </div>                              
+                <div class="text-danger">
+                    @error('bukti')
+                    {{$message}}
+                    @enderror
+                </div>
+            </div>
             {{-- 
             <div class="form-group">
                 <label for="model">Model</label>

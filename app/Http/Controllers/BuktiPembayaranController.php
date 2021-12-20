@@ -120,7 +120,7 @@ class BuktiPembayaranController extends Controller
                 'user_id' => 'required',
                 'status_bayar' => 'required',
                 'validasi_pembayaran' => 'required',
-                'bukti' => 'required|mimes:jpg,jpeg,bmp,png|max:2048kb',
+                // 'bukti' => 'required|mimes:jpg,jpeg,bmp,png|max:2048kb',
                 'deskripsi' => 'required',
             ]
         );
