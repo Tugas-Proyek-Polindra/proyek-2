@@ -12,8 +12,6 @@ use App\Http\Controllers\KelolaProdukController;
 use App\Http\Controllers\KelolaOrderanController;
 use App\Http\Controllers\PelayananProdukController;
 
-
-// use App\Http\Controllers\InvoicePemesananController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\BuktiPembayaranController;
 
@@ -52,10 +50,11 @@ Route::resource('/produk/kelola_orderan', KelolaOrderanController::class)->middl
 Route::resource('/produk', KelolaProdukController::class)->middleware('auth');
 // Route::resource('/invoice-pesanan', InvoicePesananController::class)->middleware('auth'); //blum ada model
 // Route::resource('/bukti-bayar', BuktiBayarController::class)->middleware('auth'); //blum ada model
-
-
-Route::resource('/pemesanan', PemesananController::class)->middleware('auth');
-// Route::resource('/pelanggan-invoice', InvoicePemesananController::class)->middleware('auth');
-Route::resource('/pelanggan-buktibayar', BuktiPembayaranController::class)->middleware('auth');
-
 Route::get('/buktibayar', [BuktiPembayaranController::class, 'bukti_bayar'])->name('bukti_bayar')->middleware('auth');
+Route::get('/pemesanan/invoice', [PemesananController::class, 'invoice'])->name('invoice')->middleware('auth');
+
+
+
+//Pelanggan
+Route::resource('/pemesanan', PemesananController::class)->middleware('auth');
+Route::resource('/pelanggan-buktibayar', BuktiPembayaranController::class)->middleware('auth');

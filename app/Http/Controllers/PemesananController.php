@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\KelolaKain;
 use App\Models\KelolaOrderan;
 use App\Models\PelayananProduk;
+use App\Models\InvoicePemesanan;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePemesananRequest;
 use App\Http\Requests\UpdatePemesananRequest;
@@ -27,11 +28,23 @@ class PemesananController extends Controller
     {
         return view('pelanggan.invoice_pemesanan', [
             "pemesanan" => Pemesanan::all(),
-            // "kelola_produk" => KelolaProduk::all(),
             "users" => User::all(),
             "kelola_kain" => KelolaKain::all(),
             "kelola_orderan" => KelolaOrderan::all(),
             "pelayanan_produk" => PelayananProduk::all()
+        ]);
+    }
+
+    public function invoice()
+    {
+        return view('admin.kelola_invoice_pemesanan', [
+            "pemesanan" => Pemesanan::all(),
+            "users" => User::all(),
+            "kelola_kain" => KelolaKain::all(),
+            "kelola_orderan" => KelolaOrderan::all(),
+            "pelayanan_produk" => PelayananProduk::all(),
+            "invoice_pemesanan" => InvoicePemesanan::all(),
+
         ]);
     }
 
@@ -45,10 +58,10 @@ class PemesananController extends Controller
         return view('pelanggan.pemesanan', [
             "pemesanan" => Pemesanan::all(),
             "users" => User::all(),
-            // "kelola_produk" => KelolaProduk::all(),
             "kelola_kain" => KelolaKain::all(),
             "kelola_orderan" => KelolaOrderan::all(),
-            "pelayanan_produk" => PelayananProduk::all()
+            "pelayanan_produk" => PelayananProduk::all(),
+            "invoice_pemesanan" => InvoicePemesanan::all()
         ]);
     }
 
@@ -77,10 +90,12 @@ class PemesananController extends Controller
             ]
         );
 
-
         $validatedData['desain'] = $request->file('desain')->store('desain-images');
-
         Pemesanan::create($validatedData);
+
+        // $invoiceValidatedData = $request->validate(
+        //     []
+        // );
 
         return redirect('/pemesanan')->with('pesan', 'Data Berhasil Ditambahkan !');
     }

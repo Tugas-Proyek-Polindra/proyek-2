@@ -7,7 +7,7 @@
   @if (auth()->user()->level==1)
   <li class="treeview">
     <a href="#">
-      <i class="fa fa-book"></i><span> Produk</span>
+      <i class="fa fa-cube"></i><span> Produk</span>
       <span class="pull-right-container">
         <i class="fa fa-angle-left pull-right"></i>
       </span>
@@ -21,26 +21,26 @@
   </li>
   <li class="treeview">
     <a href="#">
-      <i class="fa fa-book"></i> <span> Bukti Bayar</span>
+      <i class="fa fa-money"></i> <span> Bukti Bayar</span>
       <span class="pull-right-container">
         <i class="fa fa-angle-left pull-right"></i>
       </span>
     </a>
     <ul class="treeview-menu">
-      <li><a href="/bukti-bayar"><i class="fa fa-circle-o"></i> Kelola Bukti Bayar</a></li>
-      <li><a href="/bukti-bayar/show"><i class="fa fa-circle-o"></i> Lihat Bayar</a></li>
+      <li><a href="/buktibayar"><i class="fa fa-circle-o"></i> Kelola Bukti Bayar</a></li>
+      <li><a href="/pelanggan-buktibayar/show"><i class="fa fa-circle-o"></i> Lihat Bayar</a></li>
     </ul>
   </li>
   <li class="treeview">
     <a href="#">
-      <i class="fa fa-book"></i> <span> Pelangan</span>
+      <i class="fa fa-users"></i> <span> Pelangan</span>
       <span class="pull-right-container">
         <i class="fa fa-angle-left pull-right"></i>
       </span>
     </a>
     <ul class="treeview-menu">
-      <li><a href="/invoice-pesanan"><i class="fa fa-circle-o"></i> Kelola Invoice Pesanan</a></li>
-      <li><a href="/pesanan/create"><i class="fa fa-circle-o"></i> Pesan Onset</a></li>
+      <li><a href="/pemesanan/invoice"><i class="fa fa-circle-o"></i> Kelola Invoice Pesanan</a></li>
+      <li><a href="/pemesanan/create"><i class="fa fa-circle-o"></i> Pesan Onset</a></li>
     </ul>
   </li>
   {{-- Fitur Penjual --}}
@@ -51,8 +51,8 @@
   {{-- Fitur Pelanggan --}}
   @elseif (auth()->user()->level==0)
   {{-- <li class="{{ request()->is('pemesanan') ? 'active' : '' }}" ><a href="/pemesanan"><i class="fa fa-book"></i> <span> Pemesanan</span></a></li>        --}}
-  <li class="{{ request()->is('pelanggan_pemesanan') ? 'active' : '' }}" ><a href="/pemesanan/create"><i class="fa fa-book"></i> <span> Pemesanan</span></a></li>       
+  <li class="{{ request()->is('pelanggan_pemesanan') ? 'active' : '' }}" ><a href="/pemesanan/create"><i class="fa fa-envelope"></i> <span> Pemesanan</span></a></li>       
   <li class="{{ request()->is('pelanggan-invoice') ? 'active' : '' }}" ><a href="/pemesanan"><i class="fa fa-book"></i> <span> Invoice Pemesanan</span></a></li>       
-  <li class="{{ request()->is('pelanggan-buktibayar') ? 'active' : '' }}" ><a href="/pelanggan-buktibayar"><i class="fa fa-book"></i> <span> Bukti Pembayaran</span></a></li>       
+  <li class="{{ request()->is('pelanggan-buktibayar') ? 'active' : '' }}" ><a href="/pelanggan-buktibayar"><i class="fa fa-money"></i> <span> Bukti Pembayaran</span></a></li>       
 </ul>   
 @endif

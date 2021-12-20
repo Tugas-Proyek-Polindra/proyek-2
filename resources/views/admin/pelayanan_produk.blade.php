@@ -14,7 +14,7 @@
 @endif
 
 <div class="row">
-  <div class="col-xs-6">
+  <div class="col-xs-7">
     <div class="box">
       <div class="box-header">
         <h3 class="box-title">Semua @yield('title')</h3>
@@ -28,7 +28,7 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Kode Pelayanan</th>
+              <th>Kode</th>
               <th>Kategori</th>
               <th>Harga Satuan</th>
               <th>Action</th>
@@ -40,7 +40,7 @@
               <td> {{$loop->iteration}} </td>
               <td> {{$pelayananProduk->kode_pelayanan}} </td>
               <td> {{$pelayananProduk->kategori}} </td>
-              <td> {{$pelayananProduk->harga_satuan}} </td>
+              <td> @currency($pelayananProduk->harga_satuan) </td>
               <td>
                 <form action="/produk/pelayanan/{{$pelayananProduk->id}} " method="POST" class="form-inline">  
                   <a href="/produk/pelayanan/{{$pelayananProduk->id}}/edit " class="btn btn-sm btn-warning" >Edit</a>

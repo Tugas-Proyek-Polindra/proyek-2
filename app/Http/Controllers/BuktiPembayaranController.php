@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BuktiPembayaran;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BuktiPembayaranController extends Controller
@@ -19,14 +20,16 @@ class BuktiPembayaranController extends Controller
     public function index()
     {
         return view('pelanggan.bukti_pembayaran', [
-            "kelola_buktibayar" => BuktiPembayaran::all()
+            "bukti_pembayaran" => BuktiPembayaran::all(),
+            "users" => User::all()
         ]);
     }
 
     public function bukti_bayar()
     {
-        return view('pelanggan.bukti_pembayaran', [
-            "kelola_buktibayar" => BuktiPembayaran::all()
+        return view('admin.kelola_buktibayar', [
+            "kelola_buktibayar" => BuktiPembayaran::all(),
+            "users" => User::all()
         ]);
     }
 
@@ -38,7 +41,8 @@ class BuktiPembayaranController extends Controller
     public function create()
     {
         return view('pelanggan.add_buktipembayaran', [
-            "kelola_buktibayar" => BuktiPembayaran::all()
+            "bukti_pembayaran" => BuktiPembayaran::all(),
+            "users" => User::all()
         ]);
     }
 
@@ -50,21 +54,20 @@ class BuktiPembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        // return $request;
         // ddd($request);
         $validatedData = $request->validate(
             [
                 'kode_buktibayar' => 'required',
+                'user_id' => 'required',
                 'status_bayar' => 'required',
-                // 'validasi_pembayaran' => 'required',
-                // 'bukti' => 'required',
-                // 'detail' => 'required',
+                'validasi_pembayaran' => 'required',
+                'bukti' => 'required|mimes:jpg,jpeg,bmp,png|max:2048kb',
+                'deskripsi' => 'required',
             ]
         );
 
-        //?jika validasi tidak ada maka lakukan simpan data
-        //upload gambar/foto 
-        // $file = $request->
+        $validatedData['bukti'] = $request->file('bukti')->store('bukti-images');
 
         BuktiPembayaran::create($validatedData);
 
@@ -79,7 +82,10 @@ class BuktiPembayaranController extends Controller
      */
     public function show(BuktiPembayaran $buktiPembayaran)
     {
-        //
+        return view('pelanggan.detail_buktipembayaran', [
+            "bukti_pembayaran" => BuktiPembayaran::all(),
+            "users" => User::all()
+        ]);
     }
 
     /**
@@ -88,9 +94,15 @@ class BuktiPembayaranController extends Controller
      * @param  \App\Models\BuktiPembayaran  $buktiPembayaran
      * @return \Illuminate\Http\Response
      */
-    public function edit(BuktiPembayaran $buktiPembayaran)
+    public function edit($id)
     {
-        //
+        $buktiPembayaran = BuktiPembayaran::where('id', $id)->first();
+        return view('admin.edit_k_buktibayar', [
+            'bukti_pembayaran' => $buktiPembayaran,
+            "users" => User::all()
+
+        ]);
+        return redirect('/bukti-bayar')->with('pesan', 'Data Berhasil Ditambahkan !');
     }
 
     /**
@@ -100,9 +112,25 @@ class BuktiPembayaranController extends Controller
      * @param  \App\Models\BuktiPembayaran  $buktiPembayaran
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BuktiPembayaran $buktiPembayaran)
+    public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate(
+            [
+                'kode_buktibayar' => 'required',
+                'user_id' => 'required',
+                'status_bayar' => 'required',
+                'validasi_pembayaran' => 'required',
+                'bukti' => 'required|mimes:jpg,jpeg,bmp,png|max:2048kb',
+                'deskripsi' => 'required',
+            ]
+        );
+
+        $validatedData['bukti'] = $request->file('bukti')->store('bukti-images');
+
+        $buktiPembayaran = BuktiPembayaran::find($id)
+            ->update($validatedData);
+
+        return redirect('/bukti-bayar')->with('pesan', 'Data Berhasil Di Update !');
     }
 
     /**

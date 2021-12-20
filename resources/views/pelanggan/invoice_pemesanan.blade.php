@@ -17,7 +17,6 @@
             <div class="box-header">
             <h3 class="box-title">Semua @yield('title')</h3>
                 <div class="box-tools">
-                    {{-- <a href="/produk/create" class="btn btn-primary btn-sm me-5"><i class="fa fa-fw fa-plus-square"></i>Tambah Data</a> --}}
                 </div>
             </div>
             <!-- /.box-header -->
@@ -27,7 +26,6 @@
                     <tr>
                         <th>No</th>
                         <th>Kode</th>
-                        {{-- <th>Kode Produk</th> --}}
                         <th>Kategori</th>
                         <th>Jenis Kain</th>
                         <th>Jumlah Orderan</th>
@@ -41,7 +39,6 @@
                 <tr>
                     <td> {{$loop->iteration}} </td>
                     <td> {{$pesan->kode_pemesanan}} </td>
-                    {{-- <td> {{$pesan->kelola_produk->kode_produk}} </td> --}}
                     <td> {{$pesan->pelayanan_produk->kategori}} </td>
                     <td> {{$pesan->kelola_kain->nama_kain}} </td>
                     <td> {{$pesan->kelola_orderan->jumlah_orderan}} </td>
@@ -123,9 +120,7 @@
                             <th width="150px">Desain</th>
                             <th width="30px">:</th>
                             <th>
-                                @foreach ($pemesanan as $pesan)
                                 <img src="{{asset('storage/' . $pesan->desain)}}" width="400px" alt="{{$pesan->name}}">
-                                @endforeach
                             </th>                         
                         </tr>
                         <tr>

@@ -20,11 +20,12 @@ class CreatePemesanansTable extends Migration
             $table->foreignId('pelayanan_produk_id');
             $table->foreignId('kelola_kain_id');
             $table->foreignId('kelola_orderan_id');
-            $table->string('kode_pemesanan')->nullable();
+            $table->string('kode_pemesanan')->unique();
             $table->string('desain')->nullable();
             $table->timestamp('tgl_pesanan')->nullable();
             $table->timestamp('tgl_deadline')->nullable();
             $table->string('deskripsi')->nullable();
+
             $table->timestamps();
         });
     }

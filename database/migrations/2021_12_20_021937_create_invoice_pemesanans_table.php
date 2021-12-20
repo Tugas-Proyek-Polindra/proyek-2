@@ -14,18 +14,19 @@ class CreateInvoicePemesanansTable extends Migration
     public function up()
     {
         Schema::create('invoice_pemesanans', function (Blueprint $table) {
-            $table->id(); //id_pesanan
-            $table->foreignId("pemesanan_id");
-            $table->foreignId("user_id");
-            $table->foreignId("kelola_produk_id");
-            $table->dateTime('tgl_pesanan')->nullable();
-            $table->dateTime('tgl_deadline')->nullable();
+            $table->id();
+            //invoice pemesanan
+            $table->foreignId('user_id');
+            $table->foreignId('pelayanan_produk_id');
+            $table->foreignId('kelola_kain_id');
+            $table->foreignId('kelola_orderan_id');
+            $table->foreignId('pemesanan_id');
+
             $table->integer('jumlah_pemesanan');
             $table->integer('total_bayar');
-            $table->string('status_pembayaran');
-            $table->string('status_pemesanan');
-            $table->string('status_barang');
-
+            $table->string('status_pembayaran')->default('ongoing');
+            $table->string('status_pemesanan')->default('onproses');
+            $table->string('status_barang')->default('onproses');
 
             $table->timestamps();
         });

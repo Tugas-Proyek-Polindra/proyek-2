@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BuktiPembayaran;
 use Carbon\Carbon;
 use App\Models\InvoicePemesanan;
 use App\Models\User;
@@ -58,11 +59,41 @@ class DatabaseSeeder extends Seeder
             'kode_kain' => 'K-001',
             'nama_kain' => 'Katun'
         ]);
+        KelolaKain::create([
+            'kode_kain' => 'K-002',
+            'nama_kain' => 'Katun Konbad'
+        ]);
+        KelolaKain::create([
+            'kode_kain' => 'K-003',
+            'nama_kain' => 'Oxford'
+        ]);
+        KelolaKain::create([
+            'kode_kain' => 'K-004',
+            'nama_kain' => 'Flanel'
+        ]);
 
         KelolaOrderan::create([
             'kode_order' => 'O-001',
+            'jumlah_orderan' => 'Satuan',
+            'pcs' => 1
+        ]);
+
+        KelolaOrderan::create([
+            'kode_order' => 'O-002',
+            'jumlah_orderan' => '1 Lusin',
+            'pcs' => 12
+        ]);
+
+        KelolaOrderan::create([
+            'kode_order' => 'O-003',
             'jumlah_orderan' => '2 Lusin',
             'pcs' => 24
+        ]);
+
+        KelolaOrderan::create([
+            'kode_order' => 'O-004',
+            'jumlah_orderan' => 'Ratusan',
+            'pcs' => 100
         ]);
 
         PelayananProduk::create([
@@ -70,6 +101,30 @@ class DatabaseSeeder extends Seeder
             'kode_pelayanan' => '01',
             'kategori' => 'Sablon Kaos',
             'harga_satuan' => 60000
+        ]);
+
+        PelayananProduk::create([
+            'kode_pelayanan' => '02',
+            'kategori' => 'Sablon Bordir',
+            'harga_satuan' => 85000
+        ]);
+
+        PelayananProduk::create([
+            'kode_pelayanan' => '03',
+            'kategori' => 'Jaket',
+            'harga_satuan' => 170000
+        ]);
+
+        PelayananProduk::create([
+            'kode_pelayanan' => '04',
+            'kategori' => 'Kemeja',
+            'harga_satuan' => 165000
+        ]);
+
+        PelayananProduk::create([
+            'kode_pelayanan' => '05',
+            'kategori' => 'Jersey Printing',
+            'harga_satuan' => 150000
         ]);
 
         KelolaProduk::create([
@@ -85,41 +140,39 @@ class DatabaseSeeder extends Seeder
             'detail' => 'Kaos yang ukurannya disesuaikan pelanggannya',
         ]);
 
-        KelolaBuktiBayar::create([
-            'kode_buktibayar' => '12333',
-            'user_id' => 1,
-            'status_bayar' => 'Lunas',
-            'validasi_pembayaran' => ' Valid',
-            'bukti' => ' bukti.jpg',
-            'detail' => 'Alhamdulillah selesai'
-        ]);
+        // BuktiPembayaran::create([
+        //     'kode_buktibayar' => '12333',
+        //     'user_id' => 1,
+        //     'status_bayar' => 'Lunas',
+        //     'validasi_pembayaran' => ' Valid',
+        //     'bukti' => ' bukti.jpeg',
+        //     'deskripsi' => 'Alhamdulillah selesai'
+        // ]);
 
-        Pemesanan::create([
-            'kode_pemesanan' => 'P-001',
-            'user_id' => '3',
-            // 'kelola_produk_id' => '1',
-            'pelayanan_produk_id' => '1',
-            'kelola_kain_id' => '1',
-            'kelola_orderan_id' => '1',
-            'tgl_pesanan' => Carbon::createFromFormat('Y-m-d', '2021-12-01')->toDateTimeImmutable(),
-            'tgl_deadline' => Carbon::createFromFormat('Y-m-d', '2021-12-02')->toDateTimeImmutable(),
-            'desain' => 'kaos_sablon.png',
-            'deskripsi' => 'Pemesanan Pelanggan Pertama Kali'
-        ]);
-
-        // InvoicePemesanan::create([
-        //     'pemesanan_id' => 1,
-        //     'user_id' => 3,
-        //     'jumlah_pemesanan' => 100,
-        //     'kelola_produk_id' => 1,
-        //     'total_bayar' => 800000,
+        // Pemesanan::create([
+        //     'kode_pemesanan' => 'P-001',
+        //     'user_id' => '3',
+        //     'pelayanan_produk_id' => '1',
+        //     'kelola_kain_id' => '1',
+        //     'kelola_orderan_id' => '1',
         //     'tgl_pesanan' => Carbon::createFromFormat('Y-m-d', '2021-12-01')->toDateTimeImmutable(),
         //     'tgl_deadline' => Carbon::createFromFormat('Y-m-d', '2021-12-02')->toDateTimeImmutable(),
-        //     // 'tgl_pesanan' => new \DateTime,
-        //     // 'tgl_deadline' => new \DateTime,
-        //     'status_pembayaran' => 'Lunas',
-        //     'status_pemesanan' => 'Proses',
-        //     'status_barang' => 'Diterima'
+        //     'desain' => 'kaos_sablon.jpeg',
+        //     'deskripsi' => 'Pemesanan Pelanggan Pertama Kali'
         // ]);
+
+        InvoicePemesanan::create([
+            'pemesanan_id' => 1,
+            'user_id' => 3,
+            'pelayanan_produk_id' => 1,
+            'kelola_kain_id' => 1,
+            'kelola_orderan_id' => 1,
+
+            'jumlah_pemesanan' => 100,
+            'total_bayar' => 800000,
+            'status_pembayaran' => 'ongoing',
+            'status_pemesanan' => 'onproses',
+            'status_barang' => 'onproses'
+        ]);
     }
 }

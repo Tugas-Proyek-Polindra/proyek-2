@@ -17,7 +17,7 @@
         @csrf
         <div class="box-body">
             <div class="form-group">
-                <label for="">Kode Orderan</label>
+                <label for="kode_order">Kode Orderan</label>
                 <input name="kode_order" class="form-control" value="{{old('kode_order')}}">
                 <div class="text-danger">
                     @error('kode_order')

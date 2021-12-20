@@ -13,15 +13,24 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="/produk" method="POST" enctype="multipart/form-data" >
+            <form action="/pelanggan-buktibayar" method="POST" enctype="multipart/form-data" >
                 @csrf
                 <div class="box-body">
                     <input type="hidden" name="user_id"  id="user_id" class="form-control" value="{{Auth::user()->id}}" readonly>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="kode_pemesanan">Kode</label>
                         <input name="kode_pemesanan" class="form-control" value="{{old('kode_pemesanan')}}">
                         <div class="text-danger">
                             @error('kode_pemesanan')
+                            {{$message}}
+                            @enderror
+                        </div>
+                    </div> --}}
+                    <div class="form-group">
+                        <label for="kode_buktibayar">Kode</label>
+                        <input name="kode_buktibayar" class="form-control" value="{{old('kode_buktibayar')}}">
+                        <div class="text-danger">
+                            @error('kode_buktibayar')
                             {{$message}}
                             @enderror
                         </div>
@@ -45,17 +54,17 @@
                         </div>
                     </div>           
                     <div class="form-group">
-                        <label for="detail">Detail</label>
-                        <input name="detail" class="form-control" value="{{old('detail')}}">
+                        <label for="deskripsi">deskripsi</label>
+                        <input name="deskripsi" class="form-control" value="{{old('deskripsi')}}">
                         <div class="text-danger">
-                            @error('detail')
+                            @error('deskripsi')
                             {{$message}}
                             @enderror
                         </div>
                     </div>           
                     <div class="form-group">
                         <label for="bukti">Bukti</label>
-                        <input type="file" id="bukti">
+                        <input name="bukti" class="form-control" type="file" id="bukti" value="{{old('desain')}}">
                         <div class="text-danger">
                             @error('bukti')
                             {{$message}}

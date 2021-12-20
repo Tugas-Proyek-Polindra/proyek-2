@@ -57,7 +57,8 @@
                           <a href="/produk/{{$kelolaProduk->id}}/edit" class="btn btn-sm btn-warning" ><i class="fa fa-fw fa-pencil-square-o"></i></a>
                           @csrf
                           @method('delete')
-                          <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete{{$kelolaProduk->id}}"><i class="fa fa-fw fa-close"></i></button>              
+                          <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete{{$kelolaProduk->id}}"><i class="fa fa-fw fa-close"></i></button>    
+                                    
                         <div class="modal modal-danger fade" id="delete{{$kelolaProduk->id}}">
                           <div class="modal-dialog modal-sm">
                           <div class="modal-content">

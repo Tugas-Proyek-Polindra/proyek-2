@@ -20,7 +20,7 @@ class CreateBuktiPembayaransTable extends Migration
             $table->string('status_bayar');
             $table->string('validasi_pembayaran');
             $table->string('bukti')->nullable();
-            $table->string('detail');
+            $table->string('deskripsi');
 
             $table->timestamps();
         });

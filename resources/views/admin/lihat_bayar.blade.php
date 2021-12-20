@@ -18,7 +18,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Id Pembayaran</th>
+                <th>No</th>
                 <th>Username</th>
                 <th>Alamat</th>
                 <th>Handphone</th>
@@ -28,45 +28,24 @@
                 <th>Aksi</th>
             </tr>
         </thead>
-        {{-- <tbody>
-            <?php $no=1; ?>
-            @foreach ($buktibayar as $data)
-            <tr>
-                <td> {{$data->id_buktibayar}} </td>
-                <td>
-                    <a href="/kelola_buktibayar/edit/{{$data->id_buktibayar}}" class="btn btn-sm btn-warning" >Edit</a>
-                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete{{$data->id_buktibayar}}">
-                        Delete
-                    </button>
-                </td>
-            </tr>
-            @endforeach
-        </tbody> --}}
+        <tbody>
+          @foreach ($lihat_bayar as $bayar)
+          <tr>
+            <td> {{$loop->iteration}} </td>
+            {{-- <td> {{$bayar->kode_buktibayar}} </td> --}}
+              <td> {{$bayar->user->name}} </td>
+              <td> {{$bayar->user->alamat}} </td>
+              <td> {{$bayar->user->no_hp}} </td>
+              <td> {{$bayar->user->email}} </td>
+              <td> {{$bayar->deskripsi}} </td>
+              <td> {{$bayar->user->foto}} </td>
+              <td>
+                <a href="/produk/{{$bayar->id}}" class="btn btn-sm btn-success" ><i class="fa fa-fw fa-file-text"></i></a>
+              </td>
+          </tr>
+          @endforeach
+      </tbody>
     </table>
-
-    {{-- @foreach ($kain as $data)
-    <div class="modal modal-danger fade" id="delete{{$data->id_buktibayar}}">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">{{$data->nama_kain}}</h4>
-            </div>
-            <div class="modal-body">
-              <p>Apakah Anda Yakin Ingin Menghapus Data Ini....???</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
-              <a href="/kelola_buktibayar/delete/{{$data->id_buktibayar}} " class="btn btn-outline">Yes</a>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-    @endforeach --}}
-
   </div>
 
 
