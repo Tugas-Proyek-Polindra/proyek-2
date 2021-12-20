@@ -82,7 +82,7 @@ class BuktiPembayaranController extends Controller
      */
     public function show(BuktiPembayaran $buktiPembayaran)
     {
-        return view('pelanggan.detail_buktipembayaran', [
+        return view('admin.lihat_bayar', [
             "bukti_pembayaran" => BuktiPembayaran::all(),
             "users" => User::all()
         ]);
