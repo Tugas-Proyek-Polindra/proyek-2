@@ -28,7 +28,7 @@
                         <th>Kode</th>
                         <th>Kategori</th>
                         <th>Total Harga</th>
-                        <th>Jumlah Orderan</th>
+                        <th>Status Pembayaran</th>
                         <th>Tgl Pesanan</th>
                         <th>Tgl Deadline</th>
                         <th>Desain</th>
@@ -41,7 +41,7 @@
                     <td> {{$pesan->kode_pemesanan}} </td>
                     <td> {{$pesan->pelayanan_produk->kategori}} </td>
                     <td> @currency($pesan->total_bayar) </td>
-                    <td> {{$pesan->kelola_orderan->jumlah_orderan}} </td>
+                    <td> {{$pesan->status_pembayaran}} </td>
                     <td> {{Carbon\Carbon::parse($pesan->tgl_pesanan)->toFormattedDateString()}} </td>
                     <td> {{Carbon\Carbon::parse($pesan->tgl_deadline)->toFormattedDateString()}} </td>
                     <td> <img src="{{asset('storage/' . $pesan->desain)}}" width="100px" alt="{{$pesan->name}}"> </td>
@@ -101,6 +101,21 @@
                             <th>@currency($pesan->total_bayar)</th>
                         </tr>
                         <tr>
+                            <th width="150px">Status Pembayaran</th>
+                            <th width="30px">:</th>
+                            <th>{{ $pesan->status_pembayaran }}</th>
+                        </tr>
+                        <tr>
+                            <th width="150px">Status Pemesanan</th>
+                            <th width="30px">:</th>
+                            <th>{{ $pesan->status_pemesanan }}</th>
+                        </tr>
+                        <tr>
+                            <th width="150px">Status Barang</th>
+                            <th width="30px">:</th>
+                            <th>{{ $pesan->status_barang }}</th>
+                        </tr>
+                        <tr>
                             <th width="150px">Kategori</th>
                             <th width="30px">:</th>
                             <th>{{ $pesan->pelayanan_produk->kategori }}</th>
@@ -110,11 +125,11 @@
                             <th width="30px">:</th>
                             <th>{{ $pesan->kelola_kain->nama_kain }}</th>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <th width="150px">Jumlah Orderan</th>
                             <th width="30px">:</th>
                             <th>{{ $pesan->kelola_orderan->jumlah_orderan }}</th>
-                        </tr>
+                        </tr> --}}
                         <tr>
                             <th width="150px">Tgl Pesanan</th>
                             <th width="30px">:</th>

@@ -13,7 +13,7 @@
 @endif
 
 <div class="row">
-  <div class="col-xs-6">
+  <div class="col-xs-7">
     <div class="box">
       <div class="box-header">
         <h3 class="box-title">Semua @yield('title')</h3>

@@ -161,18 +161,18 @@ class DatabaseSeeder extends Seeder
         //     'deskripsi' => 'Pemesanan Pelanggan Pertama Kali'
         // ]);
 
-        InvoicePemesanan::create([
-            'pemesanan_id' => 1,
-            'user_id' => 3,
-            'pelayanan_produk_id' => 1,
-            'kelola_kain_id' => 1,
-            'kelola_orderan_id' => 1,
+        // InvoicePemesanan::create([
+        //     'pemesanan_id' => 1,
+        //     'user_id' => 3,
+        //     'pelayanan_produk_id' => 1,
+        //     'kelola_kain_id' => 1,
+        //     'kelola_orderan_id' => 1,
 
-            'jumlah_pemesanan' => 100,
-            'total_bayar' => 800000,
-            'status_pembayaran' => 'ongoing',
-            'status_pemesanan' => 'onproses',
-            'status_barang' => 'onproses'
-        ]);
+        //     'jumlah_pemesanan' => 100,
+        //     'total_bayar' => 800000,
+        //     'status_pembayaran' => 'ongoing',
+        //     'status_pemesanan' => 'onproses',
+        //     'status_barang' => 'onproses'
+        // ]);
     }
 }

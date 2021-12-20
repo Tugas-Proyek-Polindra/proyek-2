@@ -43,7 +43,6 @@ class PemesananController extends Controller
             "kelola_kain" => KelolaKain::all(),
             "kelola_orderan" => KelolaOrderan::all(),
             "pelayanan_produk" => PelayananProduk::all(),
-            "invoice_pemesanan" => InvoicePemesanan::all(),
 
         ]);
     }
@@ -61,7 +60,6 @@ class PemesananController extends Controller
             "kelola_kain" => KelolaKain::all(),
             "kelola_orderan" => KelolaOrderan::all(),
             "pelayanan_produk" => PelayananProduk::all(),
-            "invoice_pemesanan" => InvoicePemesanan::all()
         ]);
     }
 
@@ -94,10 +92,6 @@ class PemesananController extends Controller
 
         $validatedData['desain'] = $request->file('desain')->store('desain-images');
         Pemesanan::create($validatedData);
-
-        // $invoiceValidatedData = $request->validate(
-        //     []
-        // );
 
         return redirect('/pemesanan')->with('pesan', 'Data Berhasil Ditambahkan !');
     }
