@@ -113,9 +113,19 @@ class PemesananController extends Controller
      * @param  \App\Models\Pemesanan  $pemesanan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pemesanan $pemesanan)
+    public function edit($id)
     {
-        //
+        $pemesanan = Pemesanan::where('id', $id)->first();
+
+        return view('admin.edit_pemesanan', [
+            "pemesanan" => $pemesanan,
+            "users" => User::all(),
+            "kelola_kain" => KelolaKain::all(),
+            "kelola_orderan" => KelolaOrderan::all(),
+            "pelayanan_produk" => PelayananProduk::all(),
+        ]);
+
+        return redirect('/pemesanan/invoice')->with('pesan', 'Data Berhasil Ditambahkan !');
     }
 
     /**
@@ -127,7 +137,21 @@ class PemesananController extends Controller
      */
     public function update(UpdatePemesananRequest $request, Pemesanan $pemesanan)
     {
-        //
+        $validatedData = $request->validate(
+            [
+                'kode_pemesanan' => 'required',
+                'desain' => 'required|mimes:jpg,jpeg,bmp,png|max:2048kb',
+                'tgl_pesanan' => 'required|date|date_format:Y-m-d',
+                'tgl_deadline' => 'required|date|date_format:Y-m-d',
+                'jumlah_pemesanan' => 'required',
+                'total_bayar' => 'required',
+                'deskripsi' => 'required',
+                'user_id' => 'required',
+                'pelayanan_produk_id' => 'required',
+                'kelola_kain_id' => 'required',
+                'kelola_orderan_id' => 'required'
+            ]
+        );
     }
 
     /**

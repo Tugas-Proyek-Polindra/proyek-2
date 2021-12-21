@@ -55,7 +55,6 @@ Route::get('/pemesanan/invoice', [PemesananController::class, 'invoice'])->name(
 
 
 
-
 //Pelanggan
 Route::resource('/pemesanan', PemesananController::class)->middleware('auth');
 Route::resource('/pelanggan-buktibayar', BuktiPembayaranController::class)->middleware('auth');

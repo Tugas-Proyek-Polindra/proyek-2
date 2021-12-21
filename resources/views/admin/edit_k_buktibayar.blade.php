@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Username</label>
-                <input name="name" class="form-control" value="{{Auth::user()->name}}" readonly>
+                <input name="name" class="form-control" value="{{old('name',  $bukti_pembayaran->user->name)}}" readonly>
                 <div class="text-danger">
                     @error('name')
                     {{$message}}

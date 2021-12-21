@@ -77,7 +77,7 @@
                 <label for="nama_kain">Nama Kain</label>
                 <select name="kelola_kain_id" class="form-control">
                     @foreach ($kelola_kain as $kain)                            
-                    <option value="{{$kain->id}}">{{$kain->nama_kain}}</option>
+                    <option value="{{$kain->id}}" selected>{{$kain->nama_kain}}</option>
                     @endforeach
                 </select>                
             </div>                
@@ -85,13 +85,13 @@
                 <label for="jumlah_orderan">Jumlah Orderan</label>
                 <select name="kelola_orderan_id" class="form-control">
                     @foreach ($kelola_orderan as $orderan)                            
-                    <option value="{{$orderan->id}}">{{$orderan->jumlah_orderan}}</option>
+                    <option value="{{$orderan->id}}" selected>{{$orderan->jumlah_orderan}}</option>
                     @endforeach
                 </select>   
             </div>
 
             <div class="form-group">
-                <label for="jumlah_pemesanan">Jumlah</label>
+                <label for="jumlah_pemesanan">Jumlah Pemesanan</label>
                 <input name="jumlah_pemesanan" class="form-control" value="{{old('jumlah_pemesanan')}}">
                 <div class="text-danger">
                     @error('jumlah_pemesanan')
@@ -122,6 +122,7 @@
                 </div>
                 </div>
             </div>
+            
             <div class="form-group row">
                 <label for="tgl_deadline" class="col-sm-2 col-form-label">Tanggal Deadline</label>
                 <div class="col-sm-10">
