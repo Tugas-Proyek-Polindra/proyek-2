@@ -54,11 +54,12 @@
                         <a href="/pemesanan/{{$pesan->id}}/edit" class="btn btn-sm btn-warning" ><i class="fa fa-fw fa-pencil-square-o"></i></a>
                         @csrf
                         @method('delete')
-                        {{-- <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete{{$pesan->id}}"><i class="fa fa-fw fa-close"></i></button> --}}
+                        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete{{$pesan->id}}"><i class="fa fa-fw fa-close"></i></button>
                     </form>                     
                     <div class="modal modal-danger fade" id="delete{{$pesan->id}}">
                         <div class="modal-dialog modal-sm">
-                        <div class="modal-content">
+                        <div class="modal-cont
+                        ent">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span></button>

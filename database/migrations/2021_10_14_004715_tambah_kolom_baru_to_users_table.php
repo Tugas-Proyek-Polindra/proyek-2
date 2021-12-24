@@ -17,7 +17,7 @@ class TambahKolomBaruToUsersTable extends Migration
             $table->string('alamat')->nullable()->after('password');
             $table->string('no_hp')->nullable()->after('alamat');
             $table->string('foto')->nullable()->after('no_hp');
-            $table->tinyInteger('level')->default(1)->after('foto'); //buat pengguna
+            $table->tinyInteger('level')->default(0)->after('foto'); //buat pengguna
         });
     }
 

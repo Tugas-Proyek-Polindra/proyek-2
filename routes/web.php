@@ -48,10 +48,9 @@ Route::resource('/produk/pelayanan', PelayananProdukController::class)->middlewa
 Route::resource('/produk/kelola_kain', KelolaKainController::class)->middleware('auth');
 Route::resource('/produk/kelola_orderan', KelolaOrderanController::class)->middleware('auth');
 Route::resource('/produk', KelolaProdukController::class)->middleware('auth');
-// Route::resource('/invoice-pesanan', InvoicePesananController::class)->middleware('auth'); //blum ada model
-// Route::resource('/bukti-bayar', BuktiBayarController::class)->middleware('auth'); //blum ada model
 Route::get('/buktibayar', [BuktiPembayaranController::class, 'bukti_bayar'])->name('bukti_bayar')->middleware('auth');
-Route::get('/pemesanan/invoice', [PemesananController::class, 'invoice'])->name('invoice')->middleware('auth');
+Route::get('/pemesanan/invoice', [PemesananController::class, 'invoice'])->name('invoice')->middleware('admin');
+Route::get('/pemesanan/invoice/update', [PemesananController::class, 'update'])->name('update')->middleware('admin');
 
 
 
@@ -59,8 +58,3 @@ Route::get('/pemesanan/invoice', [PemesananController::class, 'invoice'])->name(
 Route::resource('/pemesanan', PemesananController::class)->middleware('auth');
 Route::resource('/pelanggan-buktibayar', BuktiPembayaranController::class)->middleware('auth');
 Route::get('/pelanggan', [DashboardController::class, 'pelanggan'])->name('pelanggan')->middleware('pelanggan');
-
-// Route::group(['middleware' => 'penjual'], function () {
-//     Route::get('/kelola_akun', [K_AkunController::class, 'index']);
-//     Route::get('/laporan', [LaporanController::class, 'index']);
-// });

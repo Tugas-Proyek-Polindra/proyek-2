@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- List Order -->
-<h3 class="text-center px-5 text-light-blue"><span>Design Kafka Konveksi</span> </h3>
+<h3 class="text-center px-5 text-light-blue"><span>Produk Kafka Konveksi</span> </h3>
 <div class="row">
   <div class="col-md-4 text-center m-3 content">
     <div class="box box-solid">
@@ -22,7 +22,7 @@
           <br>
           <li><p>Sablon Kaos dengan Motif Ciri Khas Indramayu</li></p>
           <li>
-            <a href="#" class="btn btn-primary">Produk Selengkapnya</a>
+            <a href="/pemesanan/create" class="btn btn-primary">Pemesanan</a>
           </li>        
         </ul>
     </div>
@@ -47,7 +47,7 @@
           <br>
           <li><p>Sablon Kaos dengan Motif Ciri Khas Indramayu</li></p>
           <li>
-            <a href="#" class="btn btn-primary">Produk Selengkapnya</a>
+            <a href="/pemesanan/create" class="btn btn-primary">Pemesanan</a>
           </li>        
         </ul>
     </div>
@@ -72,7 +72,7 @@
           <br>
           <li><p>Sablon Kaos dengan Motif Ciri Khas Indramayu</li></p>
           <li>
-            <a href="#" class="btn btn-primary">Produk Selengkapnya</a>
+            <a href="/pemesanan/create" class="btn btn-primary">Pemesanan</a>
           </li>        
         </ul>
     </div>
@@ -95,7 +95,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Sablon Kaos</h5>
                   <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                  <a href="#" class="btn btn-primary">Produk Selengkapnya</a>
+                  <a href="#" class="btn btn-primary">Pemesanan</a>
                 </div>
               </div>
         </div>
@@ -105,7 +105,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Sablon Jahit</h5>
                   <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                  <a href="#" class="btn btn-primary">Produk Selengkapnya</a>
+                  <a href="#" class="btn btn-primary">Pemesanan</a>
                 </div>
               </div>
         </div>
@@ -115,7 +115,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Jarsey Printing</h5>
                   <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                  <a href="#" class="btn btn-primary">Produk Selengkapnya</a>
+                  <a href="#" class="btn btn-primary">Pemesanan</a>
                 </div>
               </div>
         </div>
@@ -127,7 +127,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Kemeja</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                        <a href="#" class="btn btn-primary">Produk Selengkapnya</a>
+                        <a href="#" class="btn btn-primary">Pemesanan</a>
                       </div>
                     </div>
                   </div>
@@ -137,7 +137,7 @@
                         <div class="card-body">
                           <h5 class="card-title">Jaket</h5>
                           <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                          <a href="#" class="btn btn-primary">Produk Selengkapnya</a>
+                          <a href="#" class="btn btn-primary">Pemesanan</a>
                         </div>
                       </div>
                 </div>
@@ -146,7 +146,7 @@
                       <img src="img/merchandise.png" class="card-img-top" alt="...">
                       <div class="card-body">
                         <h5 class="card-title">Marchandice Printing</h5>                                <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                        <a href="#" class="btn btn-primary">Produk Selengkapnya</a>
+                        <a href="#" class="btn btn-primary">Pemesanan</a>
                       </div>
                     </div>
               </div>

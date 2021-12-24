@@ -131,18 +131,24 @@ class PemesananController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePemesananRequest  $request
+     * @param  \App\Http\Requests\Request  $request
      * @param  \App\Models\Pemesanan  $pemesanan
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePemesananRequest $request, Pemesanan $pemesanan)
+    public function update(Request $request, $id)
     {
+        // return $request;
+
         $validatedData = $request->validate(
             [
                 'kode_pemesanan' => 'required',
-                'desain' => 'required|mimes:jpg,jpeg,bmp,png|max:2048kb',
-                'tgl_pesanan' => 'required|date|date_format:Y-m-d',
-                'tgl_deadline' => 'required|date|date_format:Y-m-d',
+                'status_pembayaran' => 'required',
+                'status_pemesanan' => 'required',
+                'status_barang' => 'required',
+
+                // 'desain' => 'required|mimes:jpg,jpeg,bmp,png|max:2048kb',
+                // 'tgl_pesanan' => 'required|date|date_format:Y-m-d',
+                // 'tgl_deadline' => 'required|date|date_format:Y-m-d',
                 'jumlah_pemesanan' => 'required',
                 'total_bayar' => 'required',
                 'deskripsi' => 'required',
@@ -152,6 +158,11 @@ class PemesananController extends Controller
                 'kelola_orderan_id' => 'required'
             ]
         );
+
+        $pemesanan = Pemesanan::find($id)
+            ->update($validatedData);
+
+        return redirect('/pemesanan/invoice')->with('pesan', 'Data Berhasil Di Update !');
     }
 
     /**
@@ -160,8 +171,10 @@ class PemesananController extends Controller
      * @param  \App\Models\Pemesanan  $pemesanan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pemesanan $pemesanan)
+    public function destroy($id)
     {
-        //
+        $pemesanan = Pemesanan::find($id);
+        $pemesanan->delete();
+        return redirect('/pemesanan/invoice')->with('pesan', 'Data Berhasil Dihapus !');
     }
 }

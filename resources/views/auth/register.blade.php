@@ -40,7 +40,7 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
       <div class="form-group has-feedback">
-        <input type="name" name="name" class="form-control" placeholder="Nama">
+        <input type="name" name="name" class="form-control" placeholder="Username">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
         @error('name')
             <span class="invalid-feedback" role="alert">
@@ -70,6 +70,27 @@
         <input type="password" name="password_confirmation" class="form-control" placeholder="Konfirmasi password">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
+
+      <div class="form-group has-feedback">
+        <input type="name" name="alamat" class="form-control" placeholder="alamat">
+        <span class="glyphicon glyphicon-pushpin form-control-feedback"></span>
+        @error('alamat')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+      </div>
+
+      <div class="form-group has-feedback">
+        <input type="name" name="no_hp" class="form-control" placeholder="No HP">
+        <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+        @error('no_hp')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+      </div>
+
       <div class="row">
         <div class="col-xs-6 text-center">
           <p>Sudah Daftar ?<a href="{{ route('login') }}"> Login</a></p>         
